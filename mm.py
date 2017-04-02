@@ -46,7 +46,6 @@ for i in range(len(lines)):
 
 def createStudentFile(student):
     newFileName = student[1] + '.py'
-    print(newFileName)
     shutil.copyfile(templateFile, newFileName)
     #with open(newFileName) as f:
         #for c in f.read():
@@ -54,7 +53,6 @@ def createStudentFile(student):
     
     numLines = sum(1 for _ in open(templateFile))
     with fileinput.FileInput(newFileName, inplace=True, backup='') as file:
-        print(numLines)
         for line in file:
             if lineNum == 0:
                 lineZero = line.replace("<<NAME>>", student[0])
