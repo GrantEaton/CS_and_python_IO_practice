@@ -12,6 +12,7 @@ Both scripts will create a file for each student, named by their unique ID.
 	2. Clone this repository
 	3. In command line, execute:
 		> mcs mm.cs
+
 		> mono mm.exe 465HW4.tsv 465HW4.tmp
 
 
