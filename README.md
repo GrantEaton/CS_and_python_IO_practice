@@ -16,22 +16,7 @@ Both scripts will create a file for each student, named by their unique ID.
 		> mono mm.exe 465HW4.tsv 465HW4.tmp
 
 
-Template file:
 
-Name: <<NAME>>	(<<COURSE>>)
-ID: <<ID>>
-Total: <<TOTAL>>/100	Subtotal: <<SUBTOTAL>>		Total deductions: <<LATEDEDUCTION>>
-
-Time due: <<DUE>>
-Submitted: <<SUBMITTED>>
-Late minutes: <<MINUTESLATE>>
-Late deduction: <<LATEDEDUCTION>>
-
-Problem 1: <<P1>>/35
-<<P1COMMENTS>>
-
-Problem 2: <<P2>>/65
-<<P2COMMENTS>>
 
 
 Example Output file:
