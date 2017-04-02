@@ -5,6 +5,7 @@ from sys import argv
 
 script, studentsFile, templateFile = argv
 
+#  was going to use this class until I realized it wasnt needed. Saving it for future reference.
 
 class Student:
     name = "";
@@ -36,14 +37,17 @@ class Student:
         self.subtotal = subtotal 
         self.total = total 
 
-lines = [line.rstrip('\n') 
-        for line in open(studentsFile)] 
+# go through lines of file, strip by new line, then by tabs
+lines = [line.rstrip('\n') for line in open(studentsFile)] 
+#students is in format: SplitLines[SplitTabs[]]
 students = []
 
 for i in range(len(lines)):
     if i != 0:
         students.append(re.split(r'\t+', lines[i].rstrip('\t')))
 
+# take in a list (called student) of student's attributes 
+# creates a file named by the student's ID filled out by the template file
 def createStudentFile(student):
     newFileName = student[1] + '.py'
     shutil.copyfile(templateFile, newFileName)
@@ -51,7 +55,9 @@ def createStudentFile(student):
         #for c in f.read():
     lineNum = 0
     
+    #get number of lines in file
     numLines = sum(1 for _ in open(templateFile))
+    # check for keywords to replace and replace them if found
     with fileinput.FileInput(newFileName, inplace=True, backup='') as file:
         for line in file:
             if lineNum == 0:
@@ -81,6 +87,7 @@ def createStudentFile(student):
                 print(lineTwo.replace("<<LATEDEDUCTION>>", student[6]), end='')
             lineNum += 1
 
+# create files for each student
 for i in range(len(students)):
         createStudentFile(students[i])
 
